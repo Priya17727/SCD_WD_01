@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coffee Shop</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    html, body {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #f8efe6;
+      color: #333;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      z-index: 1000;
+      transition: background-color 0.3s;
+    }
+
+    header.scrolled {
+      background-color: #d3b18a;
+    }
+
+    .logo {
+      font-size: 1.7em;
+      font-weight: bold;
+      color: #6b4e2f;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #a56b3e;
+      color: white;
+    }
+
+    section {
+      padding: 100px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.6;
+    }
+
+    .hero-content {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 600px;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: #6b4e2f;
+    }
+
+    .hero p {
+      font-size: 1.3em;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background-color: #a56b3e;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #6b4e2f;
+    }
+
+    h2 {
+      font-size: 2.2em;
+      color: #6b4e2f;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    p, li {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    .services-list, .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .contact-form input, .contact-form textarea {
+      padding: 12px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #6b4e2f;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .services-list, .faq-list {
+        align-items: flex-start;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="navbar">
+    <div class="logo">☕ Coffee Shop</div>
+    <nav>
+      <ul>
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <video autoplay muted loop>
+      <source src="https://www.videvo.net/videvo_files/converted/2016_11/preview/160819_Coffee_01_720p.mp454753.webm" type="video/webm">
+    </video>
+    <div class="hero-content">
+      <h1>Welcome to Our Coffee Shop</h1>
+      <p>Opening 27th August | 9AM - 10PM</p>
+      <a href="#about" class="btn">Explore More</a>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About Us</h2>
+    <p>
+      At Coffee Shop, we believe that every cup tells a story. From ethically sourced beans to cozy interiors,
+      we aim to give you more than just coffee—we offer an experience. Our baristas are passionate about crafting
+      your perfect brew.
+    </p>
+  </section>
+
+  <section id="services" class="Service">
+    <h2>Our Services</h2>
+    <div class="services-list">
+      <p>☕ Freshly brewed coffee and espresso</p>
+      <p>🥐 Delicious pastries and snacks</p>
+      <p>📶 Free Wi-Fi and cozy seating</p>
+      <p>📦 Takeaway and delivery options</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>FAQ</h2>
+    <div class="faq-list">
+      <p><strong>Q:</strong> Do you offer vegan options?<br><strong>A:</strong> Yes, we have plant-based milk and vegan snacks!</p>
+      <p><strong>Q:</strong> Do you have outdoor seating?<br><strong>A:</strong> Yes, enjoy your coffee on our beautiful patio.</p>
+      <p><strong>Q:</strong> Can I work from the cafe?<br><strong>A:</strong> Absolutely! We offer free Wi-Fi and charging ports.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Coffee Shop. All rights reserved.
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+
+      const fromTop = window.scrollY + 100;
+      navLinks.forEach(link => {
+        const section = document.querySelector(link.getAttribute('href'));
+        if (
+          section.offsetTop <= fromTop &&
+          section.offsetTop + section.offsetHeight > fromTop
+        ) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
